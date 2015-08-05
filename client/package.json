@@ -1,0 +1,42 @@
+{
+  "name": "entrapped",
+  "version": "1.0.0",
+  "description": "Tiny little minefield of our dreams.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --hot --progress --colors --port 3000",
+    "build": "webpack --progress --colors"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SKatiyar/entrapped"
+  },
+  "keywords": [
+    "mine",
+    "field",
+    "boom"
+  ],
+  "author": "Rabi C Shah",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SKatiyar/entrapped/issues"
+  },
+  "homepage": "https://github.com/SKatiyar/entrapped",
+  "devDependencies": {
+    "babel": "^5.6.14",
+    "babel-core": "^5.6.18",
+    "babel-loader": "^5.3.1",
+    "file-loader": "^0.8.4",
+    "node-libs-browser": "^0.5.2",
+    "react-hot-loader": "^1.2.8",
+    "webpack": "^1.10.1",
+    "webpack-dev-server": "^1.10.1"
+  },
+  "dependencies": {
+    "flux": "^2.0.3",
+    "object-assign": "^3.0.0",
+    "react": "^0.13.3",
+    "react-router": "^0.13.3"
+  }
+}

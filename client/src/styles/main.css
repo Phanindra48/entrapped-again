@@ -1,0 +1,105 @@
+/* block css */
+.blocks {
+  margin: auto;
+}
+.block {
+  width: 45px;
+  height: 45px;
+  background-color: #eee;
+}
+.block:hover {
+  background-color: #A8CAC5;
+}
+
+.block__enemy {
+  width: 45px;
+  height: 45px;
+  background-color: rgba(26, 107, 144, 0.15);
+}
+
+.block__visited {
+  background-color: #C8C8C8;
+}
+
+.block__dead {
+  background-color: #D36B6B;
+}
+
+
+/* field */
+.minefield {
+  width: 50%;
+  text-align: center;
+  margin-top: 5em;
+}
+.minefield__wrapper {
+  width: 80%;
+  margin: auto;
+}
+.minefield__waiting {
+  text-align: center;
+  margin-top: 10%;
+  padding: 4em;
+}
+.minefield__enemy {
+  float: left;
+}
+.minefield__user {
+  float: right;
+}
+.minefield__text--instructions {
+  padding: 0;
+  margin: 0;
+  font-family: "1942 report";
+}
+.minefield__text--waiting {
+  font-family: "1942 report";
+}
+
+/* hearts */
+.heart-icons {
+  margin: 5px;
+}
+
+
+/* life */
+.life-status {
+  position: relative;
+  clear: both;
+  text-align: center;
+  padding: 3em;
+  padding-bottom: 0;
+}
+.life-status__active {
+  color: #e74c3c;
+}
+
+@font-face {
+  font-family: "1942 report";
+  src: url(1942.ttf);
+}
+
+
+/* home */
+.home {
+  text-align: center;
+  font-family: "1942 report";
+}
+.home__title {
+  margin-top: 5em;
+}
+
+.nickname {
+  margin-top: 3em;
+  margin-bottom: 2em;
+}
+.nickname__input {
+  border: 0;
+  border-bottom: 1px solid;
+  text-align: center;
+  font-size: 1.5em;
+  line-height: 45px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  outline: none;
+}
