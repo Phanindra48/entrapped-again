@@ -1,8 +1,9 @@
 import React from 'react';
-
+import Timer from './Timer.jsx';
 import Field from './Field.jsx';
 import MinesStore from '../stores/minestore.js';
 import Api from '../api/api.js';
+var _ = require('../../src/utility/utils.js');
 class Minefield extends React.Component {
 
   exitGame(){
@@ -26,7 +27,7 @@ class Minefield extends React.Component {
   componentWillUnmount() {
     MinesStore.removeChangeListener(this._onChange);
   }
-
+  
   _onChange() {
     this.setState({
       player: MinesStore.getUser(),
@@ -37,7 +38,7 @@ class Minefield extends React.Component {
   render() {
     var content = (
       <div className="minefield__wrapper">
-        <div className='timer'>Countdown Timer :</div>
+        <Timer />
         <Field of="enemy"  player={this.state.player} />
         <Field of="player" player={this.state.enemy} />
         <br/>
@@ -58,6 +59,15 @@ class Minefield extends React.Component {
       content = (
         <div className="minefield__waiting">
           <h1 className="minefield__text--waiting">Game over. {winner} won.</h1>
+        </div>
+      )
+    }
+
+    if (!this.state.player.life || !this.state.enemy.life) {
+      var gameEndedBy = this.state.player.life ? this.state.player.username : this.state.enemy.username;
+      content = (
+        <div className="minefield__waiting">
+          <h1 className="minefield__text--waiting">Game ended by {winner}.</h1>
         </div>
       )
     }

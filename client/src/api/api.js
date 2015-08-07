@@ -7,11 +7,7 @@ var apiUrl = "ws://localhost:7000";
 
 /* websocket reference */
 var conn = null;
-window.onload = function () {
-    var fiveMinutes = 60 * 5,
-        display = document.querySelector('#timer');
-    _.startTimer(fiveMinutes, display);
-};
+
 module.exports = {
   connect: function(nickname) {
     console.log('inside connect');

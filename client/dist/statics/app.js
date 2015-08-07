@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "d7a9f2ccb7996a838fe6"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "d5c5f9caf6de71232c96"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -550,9 +550,9 @@
 
 	__webpack_require__(1);
 	__webpack_require__(3);
-	__webpack_require__(245);
 	__webpack_require__(246);
-	module.exports = __webpack_require__(247);
+	__webpack_require__(247);
+	module.exports = __webpack_require__(248);
 
 
 /***/ },
@@ -25750,6 +25750,10 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _TimerJsx = __webpack_require__(245);
+
+	var _TimerJsx2 = _interopRequireDefault(_TimerJsx);
+
 	var _FieldJsx = __webpack_require__(223);
 
 	var _FieldJsx2 = _interopRequireDefault(_FieldJsx);
@@ -25761,6 +25765,8 @@
 	var _apiApiJs = __webpack_require__(243);
 
 	var _apiApiJs2 = _interopRequireDefault(_apiApiJs);
+
+	var _ = __webpack_require__(244);
 
 	var Minefield = (function (_React$Component) {
 	  _inherits(Minefield, _React$Component);
@@ -25806,11 +25812,7 @@
 	      var content = _react2['default'].createElement(
 	        'div',
 	        { className: 'minefield__wrapper' },
-	        _react2['default'].createElement(
-	          'div',
-	          { className: 'timer' },
-	          'Countdown Timer :'
-	        ),
+	        _react2['default'].createElement(_TimerJsx2['default'], null),
 	        _react2['default'].createElement(_FieldJsx2['default'], { of: 'enemy', player: this.state.player }),
 	        _react2['default'].createElement(_FieldJsx2['default'], { of: 'player', player: this.state.enemy }),
 	        _react2['default'].createElement('br', null),
@@ -25844,6 +25846,21 @@
 	            'Game over. ',
 	            winner,
 	            ' won.'
+	          )
+	        );
+	      }
+
+	      if (!this.state.player.life || !this.state.enemy.life) {
+	        var gameEndedBy = this.state.player.life ? this.state.player.username : this.state.enemy.username;
+	        content = _react2['default'].createElement(
+	          'div',
+	          { className: 'minefield__waiting' },
+	          _react2['default'].createElement(
+	            'h1',
+	            { className: 'minefield__text--waiting' },
+	            'Game ended by ',
+	            winner,
+	            '.'
 	          )
 	        );
 	      }
@@ -28229,11 +28246,7 @@
 
 	/* websocket reference */
 	var conn = null;
-	window.onload = function () {
-	  var fiveMinutes = 60 * 5,
-	      display = document.querySelector('#timer');
-	  _.startTimer(fiveMinutes, display);
-	};
+
 	module.exports = {
 	  connect: function connect(nickname) {
 	    console.log('inside connect');
@@ -28372,16 +28385,82 @@
 /* 245 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "index.html"
+	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(202), RootInstanceProvider = __webpack_require__(200), ReactMount = __webpack_require__(74), React = __webpack_require__(9); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _reactAddons = __webpack_require__(224);
+
+	var _reactAddons2 = _interopRequireDefault(_reactAddons);
+
+	var _ = __webpack_require__(244);
+
+	var Timer = (function (_React$Component) {
+	  _inherits(Timer, _React$Component);
+
+	  function Timer() {
+	    _classCallCheck(this, Timer);
+
+	    _get(Object.getPrototypeOf(Timer.prototype), 'constructor', this).apply(this, arguments);
+	  }
+
+	  _createClass(Timer, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      alert('yay!!');
+	      var fiveMinutes = 60 * 5,
+	          display = document.querySelector('.timer');
+	      _.startTimer(fiveMinutes, display);
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _reactAddons2['default'].createElement(
+	        'div',
+	        { className: 'timer' },
+	        'Countdown Timer :'
+	      );
+	    }
+	  }]);
+
+	  return Timer;
+	})(_reactAddons2['default'].Component);
+
+	;
+	exports['default'] = Timer;
+	module.exports = exports['default'];
+
+	/* REACT HOT LOADER */ }).call(this); if (true) { (function () { module.hot.dispose(function (data) { data.makeHot = module.makeHot; }); if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(218), foundReactClasses = false; if (makeExportsHot(module, __webpack_require__(9))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Timer.jsx" + ": " + err.message); } }); } } })(); }
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
 
 /***/ },
 /* 246 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "/statics/main.css"
+	module.exports = __webpack_require__.p + "index.html"
 
 /***/ },
 /* 247 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "/statics/main.css"
+
+/***/ },
+/* 248 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "/statics/1942.ttf"
